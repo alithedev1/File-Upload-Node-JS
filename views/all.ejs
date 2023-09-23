@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Images Gallery</title>
+    
+    <style>
+    
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+    
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+    
+        .image-container {
+            text-align: center;
+            margin: 20px;
+            max-width: 300px; /* Set a fixed width for all image containers */
+            display: inline-block; /* Display images side by side */
+            transition: transform 0.3s ease-in-out; /* Add transition for tilt effect */
+        }
+    
+        .image-container:hover {
+            transform: scale(1.05); /* Scale the image on hover */
+        }
+    
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Images Gallery</h1>
+
+    <% data.forEach(function(item, index) { %>
+
+        <div class="image-container">
+
+            <img src="data:image/jpeg;base64,<%= item.image.toString('base64') %>" alt="Image <%= index + 1 %>">
+
+        </div>
+
+        <% }); %>
+
+        <button onclick="window.location.href='/new'">Go to /new</button>
+
+    <script>
+    
+    </script>
+
+</body>
+
+</html>
